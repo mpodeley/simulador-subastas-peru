@@ -1,0 +1,77 @@
+{
+  "generated_at": "2026-07-17T19:27:31+00:00",
+  "source": "MINEM Anuario / COES / Climatescope (curado)",
+  "source_date": "2024",
+  "data": [
+    {
+      "id": "hydro",
+      "name": "Hidroeléctrica (agregado)",
+      "tech": "hydro",
+      "capacityMW": 5600,
+      "varCostUSDMWh": 5.0,
+      "mustRunFraction": 0.35
+    },
+    {
+      "id": "gas_ccgt_torp",
+      "name": "Gas CC Camisea (take-or-pay)",
+      "tech": "gas_ccgt",
+      "capacityMW": 1500,
+      "varCostUSDMWh": 2.0,
+      "mustRunFraction": 0.6
+    },
+    {
+      "id": "gas_ccgt",
+      "name": "Gas ciclo combinado",
+      "tech": "gas_ccgt",
+      "capacityMW": 2100,
+      "varCostUSDMWh": 4.0,
+      "heatRateMMBtuMWh": 7.0
+    },
+    {
+      "id": "gas_ocgt",
+      "name": "Gas ciclo abierto",
+      "tech": "gas_ocgt",
+      "capacityMW": 1600,
+      "varCostUSDMWh": 5.0,
+      "heatRateMMBtuMWh": 10.5
+    },
+    {
+      "id": "coal",
+      "name": "Carbón",
+      "tech": "coal",
+      "capacityMW": 140,
+      "varCostUSDMWh": 48.0
+    },
+    {
+      "id": "biomass",
+      "name": "Biomasa / bagazo",
+      "tech": "biomass",
+      "capacityMW": 60,
+      "varCostUSDMWh": 40.0,
+      "mustRunFraction": 0.4
+    },
+    {
+      "id": "diesel",
+      "name": "Diésel / residual (respaldo)",
+      "tech": "diesel",
+      "capacityMW": 1000,
+      "varCostUSDMWh": 180.0
+    },
+    {
+      "id": "solar",
+      "name": "Solar FV",
+      "tech": "solar",
+      "capacityMW": 528,
+      "varCostUSDMWh": 0.0
+    },
+    {
+      "id": "wind",
+      "name": "Eólica",
+      "tech": "wind",
+      "capacityMW": 1151,
+      "varCostUSDMWh": 0.0
+    }
+  ],
+  "reliability": "approx",
+  "note": "Parque agregado por tecnología (~14 GW)."
+}
