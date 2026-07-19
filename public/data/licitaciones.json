@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-07-17T19:27:31+00:00",
+  "source": "OSINERGMIN / distribuidoras",
+  "source_date": "2024",
+  "data": [
+    {
+      "name": "Licitación Lima 2021",
+      "year": 2021,
+      "awardedMW": 300,
+      "periodo": "2022-2031",
+      "priceUSDMWh": null,
+      "note": "2.472 MW ofertados (8,2x); 100% adjudicado (Edelnor 240, LDS 60)"
+    },
+    {
+      "name": "LDS-01-2024-LP (Luz del Sur)",
+      "year": 2024,
+      "awardedMW": null,
+      "periodo": "2028-2042",
+      "priceUSDMWh": null,
+      "note": "Primer contrato a 15 años (Ley 32249)"
+    }
+  ],
+  "reliability": "verified"
+}

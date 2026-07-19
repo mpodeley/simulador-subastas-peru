@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-07-17T19:27:31+00:00",
+  "source": "OSINERGMIN GART",
+  "source_date": "2016",
+  "data": [
+    {
+      "round": 1,
+      "year": 2010,
+      "tech": "solar",
+      "awardedMW": 80,
+      "energyGWhYr": 181,
+      "priceUSDMWh": 221.0,
+      "reliability": "verified"
+    },
+    {
+      "round": 1,
+      "year": 2010,
+      "tech": "wind",
+      "awardedMW": 142,
+      "energyGWhYr": 571,
+      "priceUSDMWh": 80.0,
+      "reliability": "verified"
+    },
+    {
+      "round": 2,
+      "year": 2011,
+      "tech": "wind",
+      "awardedMW": null,
+      "energyGWhYr": null,
+      "priceUSDMWh": 69.0,
+      "reliability": "verified"
+    },
+    {
+      "round": 2,
+      "year": 2011,
+      "tech": "solar",
+      "awardedMW": null,
+      "energyGWhYr": null,
+      "priceUSDMWh": 119.9,
+      "reliability": "verified"
+    },
+    {
+      "round": 2,
+      "year": 2011,
+      "tech": "biomass",
+      "awardedMW": null,
+      "energyGWhYr": null,
+      "priceUSDMWh": 100.0,
+      "reliability": "verified"
+    },
+    {
+      "round": 3,
+      "year": 2013,
+      "tech": "hydro",
+      "awardedMW": null,
+      "energyGWhYr": null,
+      "priceUSDMWh": 56.5,
+      "reliability": "approx",
+      "note": "Monómico promedio 50,5-64,8; bloque biomasa sin ofertas"
+    },
+    {
+      "round": 4,
+      "year": 2016,
+      "tech": "wind",
+      "awardedMW": null,
+      "energyGWhYr": null,
+      "priceUSDMWh": 37.79,
+      "reliability": "verified"
+    },
+    {
+      "round": 4,
+      "year": 2016,
+      "tech": "solar",
+      "awardedMW": null,
+      "energyGWhYr": null,
+      "priceUSDMWh": 48.09,
+      "reliability": "verified"
+    },
+    {
+      "round": 4,
+      "year": 2016,
+      "tech": "hydro",
+      "awardedMW": null,
+      "energyGWhYr": null,
+      "priceUSDMWh": 43.86,
+      "reliability": "verified"
+    },
+    {
+      "round": 4,
+      "year": 2016,
+      "tech": "biomass",
+      "awardedMW": null,
+      "energyGWhYr": null,
+      "priceUSDMWh": 77.0,
+      "reliability": "verified"
+    }
+  ],
+  "reliability": "verified",
+  "note": "Solo las 4 subastas RER realizadas. Cifras post-2016 online NO son confiables."
+}

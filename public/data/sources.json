@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-07-17T19:27:31+00:00",
+  "source": "Inventario de fuentes",
+  "source_date": "2026",
+  "data": [
+    {
+      "id": "coes_cmg",
+      "name": "COES — Costos marginales",
+      "url": "https://www.coes.org.pe/Portal/mercadomayorista/costosmarginales/index",
+      "note": "Costo marginal en tiempo real por barra. Sin API/CORS -> pipeline Fase 4.",
+      "reliability": "verified",
+      "cors": "preprocess"
+    },
+    {
+      "id": "coes_ieod",
+      "name": "COES — IEOD (post-operación)",
+      "url": "https://www.coes.org.pe/Portal/PostOperacion/Reportes/Ieod",
+      "note": "Generación por central, demanda, embalses (Excel). Pipeline Fase 4.",
+      "reliability": "verified",
+      "cors": "preprocess"
+    },
+    {
+      "id": "osin_barra",
+      "name": "OSINERGMIN — Tarifas en barra",
+      "url": "https://www.osinergmin.gob.pe/seccion/institucional/regulacion-tarifaria/procesos-regulatorios/electricidad/tarifas-en-barra",
+      "note": "Precios en barra (PDF/Excel).",
+      "reliability": "verified",
+      "cors": "preprocess"
+    },
+    {
+      "id": "osin_rer",
+      "name": "OSINERGMIN — Subastas RER",
+      "url": "https://www.osinergmin.gob.pe/empresas/energias-renovables/subastas/primera-subasta-1",
+      "note": "Resultados de las 4 subastas RER. Solo estas son confiables.",
+      "reliability": "verified",
+      "cors": "preprocess"
+    },
+    {
+      "id": "minem_anuario",
+      "name": "MINEM — Anuario Estadístico de Electricidad",
+      "url": "https://www.minem.gob.pe/_estadisticaSector.php?idSector=6",
+      "note": "Capacidad instalada, generación por tecnología, demanda.",
+      "reliability": "verified",
+      "cors": "preprocess"
+    },
+    {
+      "id": "senamhi",
+      "name": "SENAMHI — Datos hidrometeorológicos",
+      "url": "https://www.senamhi.gob.pe/?p=descarga-datos-hidrometeorologicos",
+      "note": "Caudales y precipitación por estación (TXT, requiere registro). Pipeline Fase 4.",
+      "reliability": "verified",
+      "cors": "preprocess"
+    },
+    {
+      "id": "nasa_power",
+      "name": "NASA POWER API",
+      "url": "https://power.larc.nasa.gov/docs/services/api/",
+      "note": "Irradiancia/viento por punto. CORS abierto -> fetch en vivo desde el browser.",
+      "reliability": "verified",
+      "cors": "live"
+    },
+    {
+      "id": "gsa",
+      "name": "Global Solar Atlas (point API)",
+      "url": "https://globalsolaratlas.info/",
+      "note": "Potencial solar de largo plazo por ubicación. CORS abierto.",
+      "reliability": "verified",
+      "cors": "live"
+    },
+    {
+      "id": "climatescope",
+      "name": "BNEF Climatescope — Perú",
+      "url": "https://www.global-climatescope.org/markets/peru",
+      "note": "Mix de generación, capacidad, contexto de subastas.",
+      "reliability": "verified",
+      "cors": "preprocess"
+    }
+  ],
+  "reliability": "verified"
+}

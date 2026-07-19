@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-07-17T19:27:31+00:00",
+  "source": "MINEM / Climatescope (curado)",
+  "source_date": "2024",
+  "data": [
+    {
+      "year": 2021,
+      "hydro": 30200,
+      "gas": 21000,
+      "wind": 1700,
+      "solar": 900,
+      "other": 700,
+      "unit": "GWh"
+    },
+    {
+      "year": 2022,
+      "hydro": 31000,
+      "gas": 21500,
+      "wind": 1800,
+      "solar": 1000,
+      "other": 700,
+      "unit": "GWh"
+    },
+    {
+      "year": 2023,
+      "hydro": 30000,
+      "gas": 22500,
+      "wind": 3200,
+      "solar": 1150,
+      "other": 600,
+      "unit": "GWh"
+    },
+    {
+      "year": 2024,
+      "hydro": 30800,
+      "gas": 22000,
+      "wind": 3915,
+      "solar": 1263,
+      "other": 500,
+      "unit": "GWh"
+    }
+  ],
+  "reliability": "approx"
+}

@@ -1,0 +1,41 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+  # Fase 4: add `schedule` cron here once the COES/SENAMHI fetchers exist,
+  # and a "Run data pipeline" step before the build.
+
+permissions:
+  contents: write # peaceiris pushes the build to the gh-pages branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

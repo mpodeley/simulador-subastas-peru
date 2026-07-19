@@ -1,0 +1,2 @@
+# Fase 1 (seed data) uses only the Python standard library.
+# Fase 4 (live pipeline) will add: requests, openpyxl, pandas
