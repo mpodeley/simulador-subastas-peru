@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { colors, space } from './theme'
+import { badge, colors, space } from './theme'
 import {
   useDemandProfile,
   useFleet,
@@ -85,6 +85,14 @@ export default function App() {
         <div style={{ fontWeight: 800, fontSize: 16 }}>
           Simulador de subastas · <span style={{ color: colors.accent.blue }}>SEIN Perú</span>
         </div>
+        {fleet.meta.generated_at && (
+          <span
+            style={{ ...badge(colors.status.muted), fontWeight: 600 }}
+            title={`Datos regenerados por el pipeline el ${fleet.meta.generated_at}`}
+          >
+            datos {fleet.meta.generated_at.slice(0, 10)}
+          </span>
+        )}
         <nav style={{ display: 'flex', gap: space.xs, flexWrap: 'wrap' }}>
           {NAV.map((n) => (
             <button

@@ -2,10 +2,10 @@ name: Build and deploy
 
 on:
   push:
-    branches: [master, main]
+    branches: [main, master]
+  schedule:
+    - cron: '0 10 * * *' # 05:00 America/Lima (UTC-5) — daily data refresh
   workflow_dispatch:
-  # Fase 4: add `schedule` cron here once the COES/SENAMHI fetchers exist,
-  # and a "Run data pipeline" step before the build.
 
 permissions:
   contents: write # peaceiris pushes the build to the gh-pages branch
@@ -13,7 +13,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
 
@@ -22,14 +22,29 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install npm dependencies
         run: npm ci
 
+      # Validate the engine against the committed (deterministic) seed BEFORE
+      # refreshing data, so tests never flake on live-data drift.
       - name: Type check
         run: npm run typecheck
 
       - name: Unit tests
         run: npm test
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      # Fresh data (best-effort): fetchers fall back to the curated seed if a
+      # source is down/blocked, so this step does not break the deploy.
+      - name: Run data pipeline
+        run: python scripts/build_data.py
 
       - name: Build
         run: npm run build

@@ -1,2 +1,5 @@
-# Fase 1 (seed data) uses only the Python standard library.
-# Fase 4 (live pipeline) will add: requests, openpyxl, pandas
+# Data pipeline (Fase 4).
+# fetch_nasa_power.py uses only the standard library (urllib).
+# fetch_coes.py uses requests (session/cookies) and openpyxl (Excel exports).
+requests>=2.31
+openpyxl>=3.1
