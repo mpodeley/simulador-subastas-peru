@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T22:06:04+00:00",
+  "generated_at": "2026-07-21T23:50:27+00:00",
   "source": "Inventario de fuentes",
   "source_date": "2026",
   "data": [
@@ -16,6 +16,22 @@
       "name": "COES — IEOD (post-operación)",
       "url": "https://www.coes.org.pe/Portal/PostOperacion/Reportes/Ieod",
       "note": "Generación por central, demanda, embalses (Excel). Pipeline Fase 4.",
+      "reliability": "verified",
+      "cors": "preprocess"
+    },
+    {
+      "id": "coes_gen",
+      "name": "COES — Generación por tecnología",
+      "url": "https://www.coes.org.pe/Portal/portalinformacion/Generacion",
+      "note": "Potencia por combustible 15-min (medidores). Cableado real vía pipeline (Fase 4).",
+      "reliability": "verified",
+      "cors": "preprocess"
+    },
+    {
+      "id": "coes_demanda",
+      "name": "COES — Demanda ejecutada",
+      "url": "https://www.coes.org.pe/Portal/portalinformacion/Demanda",
+      "note": "Demanda ejecutada 30-min, historia desde 2010. Cableado real vía pipeline (Fase 4).",
       "reliability": "verified",
       "cors": "preprocess"
     },

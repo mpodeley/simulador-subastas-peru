@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-21T22:06:04+00:00",
+  "generated_at": "2026-07-21T23:50:27+00:00",
   "source": "Estacionalidad hidrológica (curado)",
   "source_date": "2024",
   "data": {
-    "hydroBaseCF": 0.52,
+    "hydroBaseCF": 0.64,
     "scenarios": [
       {
         "name": "dry",
