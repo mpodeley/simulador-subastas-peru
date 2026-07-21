@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-17T19:27:31+00:00",
-  "source": "COES SINAC / BCRP (curado)",
-  "source_date": "2025",
+  "generated_at": "2026-07-21T22:08:52+00:00",
+  "source": "COES ExportarMasivo (últimos 6 meses reales) + curado histórico",
+  "source_date": "2026-06",
   "data": [
     {
       "month": "2016-01",
@@ -482,8 +482,32 @@
     {
       "month": "2025-12",
       "cmg_usd_mwh": 26.9
+    },
+    {
+      "month": "2026-01",
+      "cmg_usd_mwh": 30.2
+    },
+    {
+      "month": "2026-02",
+      "cmg_usd_mwh": 25.9
+    },
+    {
+      "month": "2026-03",
+      "cmg_usd_mwh": 55.8
+    },
+    {
+      "month": "2026-04",
+      "cmg_usd_mwh": 22.9
+    },
+    {
+      "month": "2026-05",
+      "cmg_usd_mwh": 29.2
+    },
+    {
+      "month": "2026-06",
+      "cmg_usd_mwh": 34.3
     }
   ],
-  "reliability": "approx",
-  "note": "Serie mensual curada a los anclajes conocidos."
+  "reliability": "verified",
+  "note": "Media de TOTAL sobre barras ≥138 kV, convertida a USD @ 3.75 S/./USD."
 }
