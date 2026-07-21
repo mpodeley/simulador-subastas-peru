@@ -31,6 +31,8 @@ REQUIRED = [
 FETCHERS = [
     ('fetch_nasa_power.py', 'NASA POWER (solar/eólica)'),
     ('fetch_coes.py', 'COES (costo marginal)'),
+    ('fetch_coes_demand.py', 'COES (demanda ejecutada)'),
+    ('fetch_coes_generation.py', 'COES (generación por tecnología)'),
 ]
 
 

@@ -76,14 +76,15 @@ export interface CmgHistoryRow {
   cmg_usd_mwh: number
 }
 
+/** Monthly generation by technology, GWh. Real from COES `Generacion`. */
 export interface GenerationMixRow {
-  year: number
+  month: string // YYYY-MM
   hydro: number
   gas: number
   wind: number
   solar: number
+  biomass: number
   other: number
-  unit: 'GWh' | '%'
 }
 
 export interface BarraPriceRow {

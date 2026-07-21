@@ -156,13 +156,22 @@ def build_cmg_history():
 
 
 def build_generation_mix():
-    """Annual generation by technology, GWh (approx, MINEM / Climatescope)."""
-    return [
-        {'year': 2021, 'hydro': 30200, 'gas': 21000, 'wind': 1700, 'solar': 900, 'other': 700, 'unit': 'GWh'},
-        {'year': 2022, 'hydro': 31000, 'gas': 21500, 'wind': 1800, 'solar': 1000, 'other': 700, 'unit': 'GWh'},
-        {'year': 2023, 'hydro': 30000, 'gas': 22500, 'wind': 3200, 'solar': 1150, 'other': 600, 'unit': 'GWh'},
-        {'year': 2024, 'hydro': 30800, 'gas': 22000, 'wind': 3915, 'solar': 1263, 'other': 500, 'unit': 'GWh'},
-    ]
+    """Monthly generation by technology, GWh — fallback for the real COES series
+    (fetch_coes_generation.py). Proportions anchored to a real recent month."""
+    base = {'hydro': 2850, 'gas': 1880, 'wind': 290, 'solar': 240, 'biomass': 35, 'other': 40}
+    # 12 curated months (2025) with mild wet/dry seasonality on hydro vs gas.
+    seasonal = hydro_seasonal()
+    rows = []
+    for m in range(MONTHS):
+        f = seasonal[m]
+        rows.append({
+            'month': f'2025-{m + 1:02d}',
+            'hydro': round(base['hydro'] * f, 1),
+            'gas': round(base['gas'] * (2.0 - f), 1),  # gas fills when hydro is low
+            'wind': base['wind'], 'solar': base['solar'],
+            'biomass': base['biomass'], 'other': base['other'],
+        })
+    return rows
 
 
 def build_barra_prices():
@@ -214,6 +223,10 @@ def build_sources():
          'note': 'Costo marginal en tiempo real por barra. Sin API/CORS -> pipeline Fase 4.', 'reliability': 'verified', 'cors': 'preprocess'},
         {'id': 'coes_ieod', 'name': 'COES — IEOD (post-operación)', 'url': 'https://www.coes.org.pe/Portal/PostOperacion/Reportes/Ieod',
          'note': 'Generación por central, demanda, embalses (Excel). Pipeline Fase 4.', 'reliability': 'verified', 'cors': 'preprocess'},
+        {'id': 'coes_gen', 'name': 'COES — Generación por tecnología', 'url': 'https://www.coes.org.pe/Portal/portalinformacion/Generacion',
+         'note': 'Potencia por combustible 15-min (medidores). Cableado real vía pipeline (Fase 4).', 'reliability': 'verified', 'cors': 'preprocess'},
+        {'id': 'coes_demanda', 'name': 'COES — Demanda ejecutada', 'url': 'https://www.coes.org.pe/Portal/portalinformacion/Demanda',
+         'note': 'Demanda ejecutada 30-min, historia desde 2010. Cableado real vía pipeline (Fase 4).', 'reliability': 'verified', 'cors': 'preprocess'},
         {'id': 'osin_barra', 'name': 'OSINERGMIN — Tarifas en barra', 'url': 'https://www.osinergmin.gob.pe/seccion/institucional/regulacion-tarifaria/procesos-regulatorios/electricidad/tarifas-en-barra',
          'note': 'Precios en barra (PDF/Excel).', 'reliability': 'verified', 'cors': 'preprocess'},
         {'id': 'osin_rer', 'name': 'OSINERGMIN — Subastas RER', 'url': 'https://www.osinergmin.gob.pe/empresas/energias-renovables/subastas/primera-subasta-1',
@@ -253,10 +266,11 @@ def main():
 
     seasonal = hydro_seasonal()
     write_json(os.path.join(DATA, 'hydrology_scenarios.json'), {
-        # Hydro is energy-limited by inflows, so its available power averages
-        # ~52% of installed capacity (annual CF), not 100%. The engine uses:
+        # Hydro is energy-limited by inflows, so its available power averages a
+        # fraction of installed capacity (annual CF). Calibrated to the real COES
+        # demand + mix (hydro ~53% of ~61 TWh -> CF ~0.64). The engine uses:
         # avail_MW = capacityMW * hydroBaseCF * monthly[m] * hydrologyFactor.
-        'hydroBaseCF': 0.52,
+        'hydroBaseCF': 0.64,
         'scenarios': [
             {'name': 'dry', 'label': 'Año seco', 'factor': 0.75},
             {'name': 'median', 'label': 'Año mediano', 'factor': 1.0},

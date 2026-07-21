@@ -1,10 +1,11 @@
 import { colors, radius, space, techLabels } from '../theme'
 import { Card, Loading, ReliabilityTag, SectionTitle } from './ui'
-import { CmgHistoryChart } from './charts'
+import { CmgHistoryChart, MonthlyGenMixChart } from './charts'
 import {
   useBarraPrices,
   useCmgHistory,
   useFleet,
+  useGenerationMix,
   useLicitaciones,
   useRerAuctions,
   useSources,
@@ -23,6 +24,7 @@ export function DatosPage() {
   const rer = useRerAuctions()
   const lic = useLicitaciones()
   const barra = useBarraPrices()
+  const mix = useGenerationMix()
   const sources = useSources()
 
   return (
@@ -75,9 +77,15 @@ export function DatosPage() {
       </Card>
 
       <Card>
-        <SectionTitle>Costo marginal histórico (mensual, curado)</SectionTitle>
+        <SectionTitle>Costo marginal histórico (mensual)</SectionTitle>
         {cmg.loading || !cmg.data ? <Loading /> : <CmgHistoryChart data={cmg.data} />}
         <Freshness ts={cmg.meta.generated_at} source={cmg.meta.source} />
+      </Card>
+
+      <Card>
+        <SectionTitle>Mix de generación por tecnología (COES)</SectionTitle>
+        {mix.loading || !mix.data ? <Loading /> : <MonthlyGenMixChart data={mix.data} />}
+        <Freshness ts={mix.meta.generated_at} source={mix.meta.source} />
       </Card>
 
       <Card>

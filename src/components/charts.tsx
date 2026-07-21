@@ -257,6 +257,31 @@ export function RiskVsPriceChart({
   )
 }
 
+/** Monthly generation by technology (GWh), stacked — real from COES. */
+export function MonthlyGenMixChart({ data }: { data: { month: string; hydro: number; gas: number; wind: number; solar: number; biomass: number; other: number }[] }) {
+  const seriesDefs: { key: string; label: string; color: string }[] = [
+    { key: 'hydro', label: 'Hidro', color: techColors.hydro },
+    { key: 'gas', label: 'Gas', color: techColors.gas_ccgt },
+    { key: 'wind', label: 'Eólica', color: techColors.wind },
+    { key: 'solar', label: 'Solar', color: techColors.solar },
+    { key: 'biomass', label: 'Biomasa', color: techColors.biomass },
+    { key: 'other', label: 'Otros', color: colors.accent.gray },
+  ]
+  return (
+    <ChartBox height={240}>
+      <BarChart data={data} margin={{ top: 8, right: 16, bottom: 8, left: 8 }}>
+        <CartesianGrid stroke={grid} strokeDasharray="3 3" vertical={false} />
+        <XAxis dataKey="month" tick={axisTick} stroke={grid} />
+        <YAxis tick={axisTick} stroke={grid} width={54} label={{ value: 'GWh/mes', angle: -90, position: 'insideLeft', fill: colors.textMuted, fontSize: 11 }} />
+        <Tooltip contentStyle={tooltipStyle} formatter={(v: number, name) => [`${Math.round(v)} GWh`, seriesDefs.find((s) => s.key === name)?.label ?? name]} cursor={{ fill: '#ffffff10' }} />
+        {seriesDefs.map((s) => (
+          <Bar key={s.key} dataKey={s.key} stackId="mix" fill={s.color} isAnimationActive={false} />
+        ))}
+      </BarChart>
+    </ChartBox>
+  )
+}
+
 /** Historical monthly marginal cost (Datos page). */
 export function CmgHistoryChart({ data }: { data: { month: string; cmg_usd_mwh: number }[] }) {
   return (
