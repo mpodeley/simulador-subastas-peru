@@ -6,7 +6,7 @@ Guidance for Claude Code when working in this repo.
 
 Static **bid-price simulator** for the Peruvian electricity market (SEIN), deployed to GitHub Pages.
 No backend: curated JSON in `public/data/`, and a pure-TypeScript engine (merit-order dispatch + Monte
-Carlo) runs in the browser. Sibling of `estado-del-sistema` / `gasoductos` — same stack (Vite + React 19 +
+Carlo) runs in the browser. Sibling of `estado-red-gas` / `gasoductos` — same stack (Vite + React 19 +
 TS + Recharts, `base: "./"`) and conventions. UI is Spanish; identifiers/comments English.
 
 Live (once deployed): https://mpodeley.github.io/simulador-subastas-peru/

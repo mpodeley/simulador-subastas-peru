@@ -1,6 +1,6 @@
 """Shared helper for writing JSON outputs with a consistent metadata envelope.
 
-Ported from estado-del-sistema so every dataset carries the same
+Ported from estado-red-gas so every dataset carries the same
 {generated_at, source, source_date, data} shape the frontend's useJson() unwraps.
 """
 
