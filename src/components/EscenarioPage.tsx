@@ -29,7 +29,7 @@ export function EscenarioPage({
   return (
     <Grid cols="minmax(280px, 340px) 1fr">
       <Card>
-        <SectionTitle>Assumptions del escenario</SectionTitle>
+        <SectionTitle>Supuestos del escenario</SectionTitle>
         <Slider
           label="Hidrología"
           value={scenario.hydrologyFactor}

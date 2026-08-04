@@ -63,3 +63,21 @@ select {
 .recharts-default-tooltip {
   border-radius: 8px !important;
 }
+
+.ui-grid {
+  display: grid;
+  grid-template-columns: var(--cols);
+  align-items: start;
+}
+
+/* One column on phones: the sidebar/chart split has no room below this width. */
+@media (max-width: 720px) {
+  .ui-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Wide tables scroll inside their card instead of stretching the page. */
+.table-scroll {
+  overflow-x: auto;
+}

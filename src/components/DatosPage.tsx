@@ -1,5 +1,5 @@
 import { colors, radius, space, techLabels } from '../theme'
-import { Card, Loading, ReliabilityTag, SectionTitle } from './ui'
+import { Card, Grid, Loading, ReliabilityTag, SectionTitle } from './ui'
 import { CmgHistoryChart, MonthlyGenMixChart } from './charts'
 import {
   useBarraPrices,
@@ -50,7 +50,7 @@ export function DatosPage() {
         {fleet.loading || !fleet.data ? (
           <Loading />
         ) : (
-          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+          <div className="table-scroll"><table style={{ borderCollapse: 'collapse', width: '100%' }}>
             <thead>
               <tr>
                 <th style={th}>Unidad</th>
@@ -71,7 +71,7 @@ export function DatosPage() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         )}
         <Freshness ts={fleet.meta.generated_at} source={fleet.meta.source} />
       </Card>
@@ -95,7 +95,7 @@ export function DatosPage() {
         {rer.loading || !rer.data ? (
           <Loading />
         ) : (
-          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+          <div className="table-scroll"><table style={{ borderCollapse: 'collapse', width: '100%' }}>
             <thead>
               <tr>
                 <th style={th}>Ronda</th>
@@ -120,20 +120,20 @@ export function DatosPage() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         )}
         <p style={{ color: colors.textMuted, fontSize: 12, marginTop: 4 }}>
           Solo se realizaron 4 subastas RER (2010–2016); el mecanismo está suspendido desde 2016.
         </p>
       </Card>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: space.lg }}>
+      <Grid cols="1fr 1fr">
         <Card>
           <SectionTitle>Licitaciones Ley 28832</SectionTitle>
           {lic.loading || !lic.data ? (
             <Loading />
           ) : (
-            <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+            <div className="table-scroll"><table style={{ borderCollapse: 'collapse', width: '100%' }}>
               <thead>
                 <tr>
                   <th style={th}>Proceso</th>
@@ -150,7 +150,7 @@ export function DatosPage() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
           )}
         </Card>
 
@@ -159,7 +159,7 @@ export function DatosPage() {
           {barra.loading || !barra.data ? (
             <Loading />
           ) : (
-            <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+            <div className="table-scroll"><table style={{ borderCollapse: 'collapse', width: '100%' }}>
               <thead>
                 <tr>
                   <th style={th}>Periodo</th>
@@ -174,17 +174,17 @@ export function DatosPage() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
           )}
         </Card>
-      </div>
+      </Grid>
 
       <Card>
         <SectionTitle>Fuentes</SectionTitle>
         {sources.loading || !sources.data ? (
           <Loading />
         ) : (
-          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+          <div className="table-scroll"><table style={{ borderCollapse: 'collapse', width: '100%' }}>
             <thead>
               <tr>
                 <th style={th}>Fuente</th>
@@ -207,7 +207,7 @@ export function DatosPage() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         )}
       </Card>
     </div>

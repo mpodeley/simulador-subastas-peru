@@ -159,5 +159,11 @@ export function Loading({ what }: { what?: string }) {
 }
 
 export function Grid({ cols, children }: { cols: string; children: ReactNode }) {
-  return <div style={{ display: 'grid', gridTemplateColumns: cols, gap: space.lg, alignItems: 'start' }}>{children}</div>
+  // Columns live in a CSS custom property so styles.css can collapse the grid
+  // to a single column on narrow screens (inline grid-template-columns would win).
+  return (
+    <div className="ui-grid" style={{ '--cols': cols, gap: space.lg } as React.CSSProperties}>
+      {children}
+    </div>
+  )
 }

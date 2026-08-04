@@ -55,7 +55,7 @@ export function MeritOrderChart({
   }
   return (
     <ChartBox>
-      <LineChart data={points} margin={{ top: 8, right: 16, bottom: 20, left: 8 }}>
+      <LineChart data={points} margin={{ top: 16, right: 46, bottom: 20, left: 8 }}>
         <CartesianGrid stroke={grid} strokeDasharray="3 3" />
         <XAxis
           type="number"
@@ -147,7 +147,7 @@ export function MarginVsPriceChart({
   for (let k = kMin; k <= kMax; k += 2) data.push({ k, npv: (intercept + slope * k) / 1e6 })
   return (
     <ChartBox>
-      <LineChart data={data} margin={{ top: 8, right: 24, bottom: 20, left: 8 }}>
+      <LineChart data={data} margin={{ top: 16, right: 24, bottom: 20, left: 8 }}>
         <CartesianGrid stroke={grid} strokeDasharray="3 3" />
         <XAxis dataKey="k" tick={axisTick} stroke={grid} type="number" domain={[kMin, kMax]} label={{ value: 'Precio de oferta K (USD/MWh)', position: 'insideBottom', offset: -10, fill: colors.textMuted, fontSize: 11 }} />
         <YAxis tick={axisTick} stroke={grid} width={54} label={{ value: 'NPV (M USD)', angle: -90, position: 'insideLeft', fill: colors.textMuted, fontSize: 11 }} />
@@ -186,9 +186,15 @@ export function CashflowChart({
   ]
   return (
     <ChartBox height={240}>
-      <BarChart data={data} margin={{ top: 8, right: 16, bottom: 8, left: 8 }}>
+      <BarChart data={data} margin={{ top: 8, right: 16, bottom: 28, left: 8 }}>
         <CartesianGrid stroke={grid} strokeDasharray="3 3" vertical={false} />
-        <XAxis dataKey="name" tick={{ ...axisTick, fontSize: 10 }} stroke={grid} interval={0} />
+        <XAxis
+          dataKey="name"
+          tick={{ ...axisTick, fontSize: 10, textAnchor: 'end' }}
+          angle={-25}
+          stroke={grid}
+          interval={0}
+        />
         <YAxis tick={axisTick} stroke={grid} width={48} label={{ value: 'M USD/año', angle: -90, position: 'insideLeft', fill: colors.textMuted, fontSize: 11 }} />
         <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v.toFixed(1)} M USD`, '']} cursor={{ fill: '#ffffff10' }} />
         <ReferenceLine y={0} stroke={colors.textDim} />
@@ -239,7 +245,7 @@ export function RiskVsPriceChart({
   const data = kGrid.map((k, i) => ({ k, npv: expNpvByK[i] / 1e6, pLoss: pLossByK[i] }))
   return (
     <ChartBox>
-      <LineChart data={data} margin={{ top: 8, right: 16, bottom: 20, left: 8 }}>
+      <LineChart data={data} margin={{ top: 16, right: 16, bottom: 20, left: 8 }}>
         <CartesianGrid stroke={grid} strokeDasharray="3 3" />
         <XAxis dataKey="k" tick={axisTick} stroke={grid} type="number" domain={['dataMin', 'dataMax']} label={{ value: 'Precio de oferta K (USD/MWh)', position: 'insideBottom', offset: -10, fill: colors.textMuted, fontSize: 11 }} />
         <YAxis yAxisId="npv" tick={axisTick} stroke={grid} width={50} label={{ value: 'E[NPV] M USD', angle: -90, position: 'insideLeft', fill: colors.textMuted, fontSize: 11 }} />
@@ -288,7 +294,7 @@ export function CmgHistoryChart({ data }: { data: { month: string; cmg_usd_mwh: 
     <ChartBox height={220}>
       <LineChart data={data} margin={{ top: 8, right: 16, bottom: 8, left: 8 }}>
         <CartesianGrid stroke={grid} strokeDasharray="3 3" />
-        <XAxis dataKey="month" tick={axisTick} stroke={grid} interval={11} />
+        <XAxis dataKey="month" tick={axisTick} stroke={grid} interval="preserveStartEnd" minTickGap={28} />
         <YAxis tick={axisTick} stroke={grid} width={44} />
         <Tooltip contentStyle={tooltipStyle} formatter={(v: number) => [`${v} USD/MWh`, 'CMg']} />
         <Line type="monotone" dataKey="cmg_usd_mwh" stroke={colors.accent.orange} strokeWidth={1.5} dot={false} isAnimationActive={false} />
