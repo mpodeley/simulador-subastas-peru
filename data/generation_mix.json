@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T14:34:49+00:00",
+  "generated_at": "2026-09-02T14:07:44+00:00",
   "source": "COES Generación (medidores, últimos 6 meses)",
   "source_date": "2026-08",
   "data": [
@@ -50,12 +50,12 @@
     },
     {
       "month": "2026-08",
-      "hydro": 324.7,
-      "gas": 802.3,
-      "wind": 38.8,
-      "solar": 135.9,
-      "biomass": 6.5,
-      "other": 58.5
+      "hydro": 1474.6,
+      "gas": 2625.9,
+      "wind": 288.6,
+      "solar": 255.7,
+      "biomass": 54.9,
+      "other": 76.2
     }
   ],
   "reliability": "verified",
