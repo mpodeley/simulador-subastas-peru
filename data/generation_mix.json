@@ -1,17 +1,8 @@
 {
-  "generated_at": "2026-09-30T16:19:01+00:00",
+  "generated_at": "2026-10-01T16:55:22+00:00",
   "source": "COES Generación (medidores, últimos 6 meses)",
-  "source_date": "2026-08",
+  "source_date": "2026-09",
   "data": [
-    {
-      "month": "2026-03",
-      "hydro": 3217.5,
-      "gas": 1218.1,
-      "wind": 330.0,
-      "solar": 281.1,
-      "biomass": 55.4,
-      "other": 337.0
-    },
     {
       "month": "2026-04",
       "hydro": 3147.8,
@@ -56,6 +47,15 @@
       "solar": 255.7,
       "biomass": 54.9,
       "other": 76.2
+    },
+    {
+      "month": "2026-09",
+      "hydro": 517.2,
+      "gas": 850.1,
+      "wind": 107.5,
+      "solar": 161.4,
+      "biomass": 5.9,
+      "other": 15.7
     }
   ],
   "reliability": "verified",

@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-30T16:18:28+00:00",
+  "generated_at": "2026-10-01T16:54:45+00:00",
   "source": "COES ExportarMasivo (últimos 6 meses reales) + curado histórico",
-  "source_date": "2026-08",
+  "source_date": "2026-09",
   "data": [
     {
       "month": "2016-01",
@@ -484,10 +484,6 @@
       "cmg_usd_mwh": 26.9
     },
     {
-      "month": "2026-03",
-      "cmg_usd_mwh": 55.8
-    },
-    {
       "month": "2026-04",
       "cmg_usd_mwh": 22.9
     },
@@ -506,6 +502,10 @@
     {
       "month": "2026-08",
       "cmg_usd_mwh": 74.4
+    },
+    {
+      "month": "2026-09",
+      "cmg_usd_mwh": 132.2
     }
   ],
   "reliability": "verified",
