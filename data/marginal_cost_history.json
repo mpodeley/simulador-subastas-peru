@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-30T16:35:20+00:00",
-  "source": "COES ExportarMasivo (últimos 6 meses reales) + curado histórico",
+  "generated_at": "2026-10-31T15:44:05+00:00",
+  "source": "COES ExportarMasivo (últimos 5 meses reales) + curado histórico",
   "source_date": "2026-09",
   "data": [
     {
@@ -482,10 +482,6 @@
     {
       "month": "2025-12",
       "cmg_usd_mwh": 26.9
-    },
-    {
-      "month": "2026-04",
-      "cmg_usd_mwh": 22.9
     },
     {
       "month": "2026-05",
