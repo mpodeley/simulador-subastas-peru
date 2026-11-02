@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-01T16:37:40+00:00",
+  "generated_at": "2026-11-02T20:01:29+00:00",
   "source": "COES Demanda (Ejecutado, años 2024-2025)",
   "source_date": "2025",
   "data": {
     "peakMW": 7856,
-    "annualGWh": 61266.7,
+    "annualGWh": 61266.8,
     "shape": [
       [
         0.8447,
